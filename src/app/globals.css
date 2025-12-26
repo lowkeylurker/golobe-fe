@@ -68,16 +68,16 @@
   --color-card: var(--card); */
 
   --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-md: calc(var(--radius));
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-4xl: calc(var(--radius) + 20px);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.25rem;
 
   --background: oklch(1 0 0);
 
@@ -89,9 +89,9 @@
   /* --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0); */
 
-  --primary: rgba(155, 224, 200, 1);
+  --primary: rgba(141, 211, 187, 1);
   --primary-hover: rgba(155, 224, 200, 1);
-  --primary-focus: rgba(141, 211, 187, 1);
+  --primary-focus: rgba(165, 235, 211, 1);
   --primary-pressed: rgba(130, 203, 178, 1);
   --primary-foreground: rgba(17, 34, 17, 1);
 
