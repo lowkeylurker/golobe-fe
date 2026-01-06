@@ -1,9 +1,10 @@
+'use client'
+
 import clsx from 'clsx'
 import { BedDouble, Heart, Plane } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 
 import {
@@ -29,9 +30,8 @@ import { Separator } from '../ui/separator'
 
 import { logoutUserAction, selectCurrentUser } from '~/redux/slices/userSlice'
 import { AppDispatch } from '~/redux/store'
-import { ROUTES } from '~/routes'
 
-function Header() {
+export default function Header() {
   const navigate = useNavigate()
   const pathname = useLocation().pathname
 
@@ -176,5 +176,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header

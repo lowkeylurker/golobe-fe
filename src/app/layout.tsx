@@ -2,7 +2,9 @@ import { Montserrat } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import type { Metadata } from 'next'
+
 import './globals.css'
+import { QueryProvider } from '@/providers'
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -39,7 +41,7 @@ export default function RootLayout({
       <body
         className={`$${tradeGothic.variable} ${montserrat.variable} antialiased`}
       >
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   )
