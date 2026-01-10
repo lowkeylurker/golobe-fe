@@ -18,6 +18,9 @@
   --color-foreground: var(--foreground);
   --color-foreground-opacity-25: var(--foreground-opacity-25);
   --color-foreground-opacity-50: var(--foreground-opacity-50);
+  --color-foreground-opacity-75: var(--foreground-opacity-75);
+  --color-foreground-opacity-70: var(--foreground-opacity-70);
+  --color-foreground-opacity-80: var(--foreground-opacity-80);
 
   --font-trade-gothic: var(--font-trade-gothic);
   --font-montserrat: var(--font-montserrat);
@@ -45,6 +48,7 @@
   --color-input-icon: var(--input-icon);
 
   --color-border: var(--border);
+  --color-separator: var(--separator);
 
   --color-destructive: var(--destructive);
 
@@ -62,6 +66,7 @@
   --color-primary-hover: var(--primary-hover);
   --color-primary-focus: var(--primary-focus);
   --color-primary-pressed: var(--primary-pressed);
+  --color-primary-light: var(--primary-light);
 
   /* --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
@@ -81,11 +86,14 @@
 :root {
   --radius: 0.25rem;
 
-  --background: oklch(1 0 0);
+  --background: rgba(250, 251, 252, 1);
 
   --foreground: rgba(17, 34, 17, 1);
   --foreground-opacity-50: rgba(17, 34, 17, 0.5);
   --foreground-opacity-25: rgba(17, 34, 17, 0.25);
+  --foreground-opacity-75: rgba(17, 34, 17, 0.75);
+  --foreground-opacity-70: rgba(17, 34, 17, 0.7);
+  --foreground-opacity-80: rgba(17, 34, 17, 0.8);
 
   /* --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0); */
@@ -98,12 +106,15 @@
   --primary-focus: rgba(165, 235, 211, 1);
   --primary-pressed: rgba(130, 203, 178, 1);
   --primary-foreground: rgba(17, 34, 17, 1);
+  --primary-light: rgba(205, 234, 225, 1);
 
   --secondary: rgba(210, 209, 211, 1);
   --secondary-foreground: rgba(143, 140, 145, 1);
 
   --muted: rgba(210, 209, 211, 1);
   --muted-foreground: rgba(143, 140, 145, 1);
+
+  --separator: rgba(215, 226, 238, 1);
 
   /* --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0); */

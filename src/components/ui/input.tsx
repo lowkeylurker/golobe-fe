@@ -28,7 +28,7 @@ function Input({
       <label
         htmlFor={props.id}
         className={cn(
-          'font-montserrat bg-background text-foreground peer-focus:text-primary-focus peer-disabled:text-secondary-foreground absolute top-2 left-3 z-10 origin-left -translate-y-4 scale-[87.5%] transform px-2 text-base duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-1 peer-focus:-translate-y-4 peer-focus:scale-[87.5%] peer-focus:px-2',
+          'font-montserrat bg-background text-foreground peer-focus:text-primary-focus peer-disabled:text-secondary-foreground absolute top-1.5 left-3 z-10 origin-left -translate-y-4 scale-[87.5%] transform px-1 text-base duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-1 peer-focus:-translate-y-4 peer-focus:scale-[87.5%] peer-focus:px-2',
           className?.includes('border-destructive') ? 'text-destructive' : ''
         )}
       >

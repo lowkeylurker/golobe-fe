@@ -2,47 +2,49 @@ import Image from 'next/image'
 import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { RiInstagramFill } from 'react-icons/ri'
 
+import FooterImage from '@/shared/images/footer.png'
+import LogoDark from '@/shared/images/logo-dark.png'
+
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 
 export default function Footer() {
   return (
-    <footer className="bg-mainColor-400 relative mt-64 py-10 text-black">
-      <div className="bg-mainColor-200 absolute -top-[140px] left-1/2 container mx-auto -translate-x-1/2 rounded-2xl">
-        <div className="flex items-center justify-between p-6">
-          <div className="">
-            <div className="mb-4 text-5xl font-semibold">
+    <footer className="bg-primary relative mt-64 py-10 text-black">
+      <div className="bg-primary-light absolute -top-1/2 left-1/2 container mx-auto -translate-x-1/2 rounded-3xl">
+        <div className="flex items-center justify-between px-6">
+          <div className="py-6">
+            <div className="font-trade-gothic mb-4 text-[44px] leading-14 font-semibold">
               Subcribe <br />
               Newsletter
             </div>
-            <div className="text-xl">The Travel</div>
-            <div className="font-light">
+            <div className="text-foreground-opacity-80 text-lg font-bold">
+              The Travel
+            </div>
+            <div className="text-foreground-opacity-70 text-base font-medium">
               Get inspired! Receive travel discounts, tips and behind the scenes
               stories.
             </div>
             <form action="" className="mt-4 flex items-center gap-4">
               <Input
+                label=""
                 type="text"
                 placeholder="Your email address"
-                className="bg-white"
+                className="border-none bg-white"
               />
-              <Button>Subscribe</Button>
+              <Button size="lg" className="bg-foreground text-white">
+                Subscribe
+              </Button>
             </form>
           </div>
-          <Image
-            src="/footer.png"
-            alt=""
-            width={288}
-            height={288}
-            className="w-72"
-          />
+          <Image src={FooterImage} alt="" width={400} height={305} />
         </div>
       </div>
 
-      <div className="container mx-auto flex items-center gap-6 pt-36">
-        <div className="w-1/5 space-y-4">
+      <div className="container mx-auto flex items-start justify-between pt-36">
+        <div className="w-fit space-y-4">
           <div className="rounded-xl bg-transparent">
-            <Image src="/Logo1.png" alt="" width={288} height={288} />
+            <Image src={LogoDark} alt="" width={120} height={40} />
           </div>
           <div className="flex gap-3 text-xl text-gray-800">
             <FaFacebookF />
@@ -52,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid flex-1 grid-cols-5">
+        <div className="grid grid-cols-5 gap-6">
           <div>
             <h2 className="mb-2 font-semibold">Our Destinations</h2>
             <ul className="space-y-1 text-sm font-light">

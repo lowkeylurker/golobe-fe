@@ -212,3 +212,7 @@ export { default as WalletFilled } from './wallet-filled.svg'
 export { default as WalletOutline } from './wallet-outline.svg'
 export { default as WifiFilled } from './wifi-filled.svg'
 export { default as WifiOutline } from './wifi-outline.svg'
+
+export { default as Facebook } from './facebook.svg'
+export { default as Google } from './google.svg'
+export { default as Apple } from './apple.svg'
