@@ -16,6 +16,8 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-opacity-25: var(--foreground-opacity-25);
+  --color-foreground-opacity-50: var(--foreground-opacity-50);
 
   --font-trade-gothic: var(--font-trade-gothic);
   --font-montserrat: var(--font-montserrat);
@@ -82,6 +84,8 @@
   --background: oklch(1 0 0);
 
   --foreground: rgba(17, 34, 17, 1);
+  --foreground-opacity-50: rgba(17, 34, 17, 0.5);
+  --foreground-opacity-25: rgba(17, 34, 17, 0.25);
 
   /* --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0); */
@@ -112,6 +116,7 @@
   --input-border-disabled: rgba(28, 27, 31, 0.12);
   --input-placeholder: rgba(28, 27, 31, 1);
   --input-icon: rgba(73, 69, 79, 1);
+  --input-border: rgba(121, 116, 126, 1);
 
   --ring: oklch(0.708 0 0);
 
