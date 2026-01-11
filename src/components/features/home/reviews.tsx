@@ -46,7 +46,7 @@ export default function Reviews() {
             </div>
 
             <div className="mb-4 flex items-center gap-1">
-              <Google />
+              <Google className="text-base" />
               <span className="text-sm text-gray-500">Google</span>
             </div>
 

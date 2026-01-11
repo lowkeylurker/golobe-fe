@@ -1,9 +1,11 @@
 export const HOTEL_ROUTES = {
-  SEARCH: '/hotels/search',
+  MAIN: '/hotels',
+  LIST: '/hotels/list',
 }
 
 export const FLIGHT_ROUTES = {
-  SEARCH: '/flights/search',
+  MAIN: '/flights',
+  LIST: '/flights/list',
 }
 
 export const AUTH_ROUTES = {
@@ -15,7 +17,7 @@ export const AUTH_ROUTES = {
 
 export const ACCOUNT_ROUTES = {
   ACCOUNT: '/account',
-  FAVORITES: '/account/favorites',
 }
 
 export const HOME_ROUTE = '/'
+export const FAVORITES_ROUTE = '/favorites'

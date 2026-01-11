@@ -68,10 +68,10 @@
   --color-primary-pressed: var(--primary-pressed);
   --color-primary-light: var(--primary-light);
 
-  /* --color-popover-foreground: var(--popover-foreground);
+  --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
 
-  --color-card-foreground: var(--card-foreground);
+  /* --color-card-foreground: var(--card-foreground);
   --color-card: var(--card); */
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -98,8 +98,8 @@
   /* --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0); */
 
-  /* --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0); */
+  --popover: rgba(255, 255, 255, 1);
+  --popover-foreground: var(--foreground);
 
   --primary: rgba(141, 211, 187, 1);
   --primary-hover: rgba(155, 224, 200, 1);
@@ -186,6 +186,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-montserrat;
   }
 }

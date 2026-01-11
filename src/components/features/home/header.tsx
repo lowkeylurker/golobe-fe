@@ -2,7 +2,7 @@
 
 import { useClerk, useUser } from '@clerk/nextjs'
 import clsx from 'clsx'
-import { Bed, Heart } from 'lucide-react'
+import { Bed } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -23,16 +23,27 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Separator } from '@/components/ui/separator'
-import { AirplaneFilled } from '@/shared/icons'
+import {
+  AirplaneFilled,
+  ChevronForward,
+  UserFilled,
+  CardFilled,
+  SettingsFilled,
+  SupportFilled,
+  LogoutFilled,
+  HeartFilled,
+} from '@/shared/icons'
 import Logo from '@/shared/images/logo-light.png'
 import {
   ACCOUNT_ROUTES,
   AUTH_ROUTES,
+  FAVORITES_ROUTE,
   FLIGHT_ROUTES,
   HOTEL_ROUTES,
 } from '@/utils/constants'
@@ -53,14 +64,14 @@ export default function HomeHeader() {
       <div className="flex items-center gap-5 text-sm font-semibold">
         <div
           className="flex cursor-pointer items-center gap-1"
-          onClick={() => router.push(FLIGHT_ROUTES.SEARCH)}
+          onClick={() => router.push(FLIGHT_ROUTES.MAIN)}
         >
-          <AirplaneFilled />
+          <AirplaneFilled className="text-base text-white" />
           <span>Find Flight</span>
         </div>
         <div
           className="flex cursor-pointer items-center gap-1"
-          onClick={() => router.push(HOTEL_ROUTES.SEARCH)}
+          onClick={() => router.push(HOTEL_ROUTES.MAIN)}
         >
           <Bed />
           <span>Find Stays</span>
@@ -78,9 +89,9 @@ export default function HomeHeader() {
                   pathname.startsWith('/favorites'),
               }
             )}
-            onClick={() => router.push(ACCOUNT_ROUTES.FAVORITES)}
+            onClick={() => router.push(FAVORITES_ROUTE)}
           >
-            <Heart />
+            <HeartFilled className="text-white" />
             Favorites
           </div>
           <Separator orientation="vertical" className="h-8" />
@@ -98,42 +109,100 @@ export default function HomeHeader() {
                 </div>
               </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={() => router.push(ACCOUNT_ROUTES.ACCOUNT)}
-              >
-                Profile
-              </DropdownMenuItem>
+            <DropdownMenuContent className="w-72" align="end">
+              {/* User Profile Header */}
+              <div className="flex items-center gap-3">
+                <Avatar className="size-14">
+                  <AvatarImage src={user.user?.imageUrl || ''} />
+                  <AvatarFallback className="text-foreground">
+                    {user.user?.firstName?.charAt(0)}
+                    {user.user?.lastName?.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <div className="text-foreground font-semibold">
+                    {user.user?.fullName}
+                  </div>
+                  <div className="text-foreground-opacity-75 text-sm">
+                    Online
+                  </div>
+                </div>
+              </div>
+
               <DropdownMenuSeparator />
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <DropdownMenuItem
-                    className="text-destructive hover:!bg-destructive/10 hover:!text-destructive cursor-pointer"
-                    onSelect={(event) => {
-                      event.preventDefault()
-                    }}
-                  >
-                    Logout
-                  </DropdownMenuItem>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Warning!</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      Are you sure to log you out?
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel onClick={() => setOpen(false)}>
-                      Cancel
-                    </AlertDialogCancel>
-                    <AlertDialogAction onClick={handleLogout}>
-                      Logout
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+
+              <DropdownMenuGroup>
+                {/* Main Menu Items */}
+                <DropdownMenuItem
+                  onClick={() => router.push(ACCOUNT_ROUTES.ACCOUNT)}
+                >
+                  <div className="flex items-center gap-3">
+                    <UserFilled className="text-[18px]" />
+                    <span className="font-medium">My account</span>
+                  </div>
+                  <ChevronForward className="text-base" />
+                </DropdownMenuItem>
+
+                <DropdownMenuItem>
+                  <div className="flex items-center gap-3">
+                    <CardFilled className="text-[18px]" />
+                    <span className="font-medium">Payments</span>
+                  </div>
+                  <ChevronForward className="text-base" />
+                </DropdownMenuItem>
+
+                <DropdownMenuItem>
+                  <div className="flex items-center gap-3">
+                    <SettingsFilled className="text-[18px]" />
+                    <span className="font-medium">Settings</span>
+                  </div>
+                  <ChevronForward className="text-base" />
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuGroup>
+                {/* Support & Logout */}
+                <DropdownMenuItem>
+                  <div className="flex items-center gap-3">
+                    <SupportFilled className="text-[18px]" />
+                    <span className="font-medium">Support</span>
+                  </div>
+                  <ChevronForward className="text-base" />
+                </DropdownMenuItem>
+
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <DropdownMenuItem
+                      onSelect={(event) => {
+                        event.preventDefault()
+                      }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <LogoutFilled className="text-[18px]" />
+                        <span className="font-medium">Logout</span>
+                      </div>
+                    </DropdownMenuItem>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Warning!</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Are you sure you want to log out?
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel onClick={() => setOpen(false)}>
+                        Cancel
+                      </AlertDialogCancel>
+                      <AlertDialogAction onClick={handleLogout}>
+                        Logout
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

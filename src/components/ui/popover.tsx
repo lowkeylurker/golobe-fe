@@ -16,7 +16,7 @@ function PopoverTrigger({
   className,
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Trigger> & {
-  label: string
+  label?: string
 }) {
   return (
     <div className="relative">
