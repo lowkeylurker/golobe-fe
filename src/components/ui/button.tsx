@@ -15,6 +15,7 @@ const buttonVariants = cva(
           'border bg-transparent border-primary hover:border-primary-hover focus-visible:border-primary-focus focus-visible:border-2 active:border-primary-pressed disabled:border-secondary disabled:text-secondary-foreground [&_svg]:disabled:text-secondary-foreground',
         ghost:
           'hover:text-primary-hover active:text-primary-pressed disabled:text-secondary-foreground [&_svg]:disabled:text-secondary-foreground',
+        icon: 'p-0 [&_svg]:size-6',
       },
       size: {
         sm: 'h-8',

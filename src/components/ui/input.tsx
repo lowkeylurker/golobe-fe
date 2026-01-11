@@ -1,15 +1,15 @@
 import * as React from 'react'
 
 import { cn } from '@/lib/utils'
+import { EyeFilled, EyeOffFilled } from '@/shared/icons'
 
-function Input({
-  className,
-  type,
-  label,
-  ...props
-}: React.ComponentProps<'input'> & {
+import { Button } from './button'
+
+type InputProps = React.ComponentProps<'input'> & {
   label: string
-}) {
+}
+
+function Input({ className, type, label, ...props }: InputProps) {
   return (
     <div className="relative">
       <input
@@ -29,7 +29,7 @@ function Input({
         htmlFor={props.id}
         className={cn(
           'font-montserrat bg-background text-foreground peer-focus:text-primary-focus peer-disabled:text-secondary-foreground absolute top-1.5 left-3 z-10 origin-left -translate-y-4 scale-[87.5%] transform px-1 text-base duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-1 peer-focus:-translate-y-4 peer-focus:scale-[87.5%] peer-focus:px-2',
-          className?.includes('border-destructive') ? 'text-destructive' : ''
+          'peer-aria-invalid:text-destructive'
         )}
       >
         {label}
@@ -38,4 +38,32 @@ function Input({
   )
 }
 
-export { Input }
+function PasswordInput({ className, ...props }: Omit<InputProps, 'type'>) {
+  const [showPassword, setShowPassword] = React.useState(false)
+
+  return (
+    <div className="relative">
+      <Input
+        type={showPassword ? 'text' : 'password'}
+        className={cn('pe-12', className)}
+        {...props}
+      />
+      <Button
+        type="button"
+        variant="icon"
+        size="lg"
+        className="absolute top-1/2 right-3 -translate-y-1/2"
+        onClick={() => setShowPassword((prev) => !prev)}
+        aria-label={showPassword ? 'Hide password' : 'Show password'}
+      >
+        {showPassword ? (
+          <EyeFilled className="size-6" />
+        ) : (
+          <EyeOffFilled className="size-6" />
+        )}
+      </Button>
+    </div>
+  )
+}
+
+export { Input, PasswordInput }

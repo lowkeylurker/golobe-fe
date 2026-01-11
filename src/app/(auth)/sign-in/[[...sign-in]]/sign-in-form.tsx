@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   Form,
   FormControl,
@@ -16,7 +17,7 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Input, PasswordInput } from '@/components/ui/input'
 import { AUTH_ROUTES, HOME_ROUTE } from '@/utils/constants'
 
 const SignInFormSchema = z.object({
@@ -95,7 +96,7 @@ export function SignInForm() {
             render={({ field }) => (
               <FormItem className="relative space-y-0">
                 <FormControl>
-                  <Input label="Password" type="password" {...field} />
+                  <PasswordInput label="Password" {...field} />
                 </FormControl>
                 <FormMessage className="text-destructive" />
               </FormItem>
@@ -105,14 +106,10 @@ export function SignInForm() {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1">
-            <input
-              type="checkbox"
+            <Checkbox
               id="remember"
-              name="remember"
-              value="remember"
-              className="h-4 w-4"
               checked={rememberMe}
-              onChange={() => setRememberMe((prev) => !prev)}
+              onCheckedChange={() => setRememberMe((prev) => !prev)}
             />
             <label
               className="cursor-pointer text-sm font-semibold"
